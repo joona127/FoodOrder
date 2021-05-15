@@ -5,7 +5,6 @@
 }
 
 .wrapper{
-    border: 1px solid black;
     width: 80%;
     padding: 1%;
     margin: 0 auto;
@@ -16,6 +15,7 @@
 
 .menu{
     font-weight: bold;
+    border-bottom: 1px solid grey;
    
 }
 
@@ -41,8 +41,24 @@
     text-align: center;
 }
 
-/* CSS for main content */
+.clear-fix{
+  float: none;
+  clear: both;
+}
 
+/* CSS for main content */
+.main-content{
+    background-color: #f1f2f6;
+    padding: 3% 0;
+}
+
+.col-4{
+    width: 17%;
+    background-color: white;
+    margin: 1%;
+    padding: 2%;
+    float: left;
+}
 
 /* CSS for Footer */
 
