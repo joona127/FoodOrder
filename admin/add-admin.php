@@ -6,6 +6,15 @@
 
     <br><br>
 
+    <?php 
+    if(isset($_SESSION['add']))
+    {
+        echo $_SESSION['add'];
+        unset($_SESSION['add']);
+    }
+    
+    ?>
+
     <form action="" method="POST">
        <table class="tbl-30">
            <tr>
@@ -62,9 +71,27 @@ if(isset($_POST['submit']))
     ";
 
     // 3. Execute query and save data in database
-    $conn = mysqli_connect('localhost', 'root', '') or die(mysqli_error()); // Database connection
-    $db_select = mysqli_select_db($conn, 'food-order') or die(mysqli_error());
-    // $res = mysqli_query($conn, $sql) or die(mysqli_error());
+    $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+     
+    // 4. Check whether the data is inserted or not and
+    // display appropriate message
+
+    if($res==TRUE)
+    {
+        // echo "Data inserted";
+        // Create a session variable to display message
+        $_SESSION['add'] = "Admin added succesfully";
+        //Redirect page to manage admin
+        header("location:".SITEURL.'admin/manage-admin.php');
+    }
+    else 
+    {
+       // echo "Failed";
+       // Create a session variable to display message
+       $_SESSION['add'] = "Failed to add Admin";
+       //Redirect page to add admin
+       header("location:".SITEURL.'admin/add-admin.php');
+    }
 
 }
 
