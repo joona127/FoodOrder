@@ -12,13 +12,13 @@ $res = mysqli_query($conn, $sql);
 
 if($res==TRUE)
 {
-  $_SESSION['delete'] = "Admin deleted succesfully";
+  $_SESSION['delete'] = "<div class='success'>Admin deleted succesfully</div>";
 
   header('location:'.SITEURL.'admin/manage-admin.php');
 }
 else 
 {
-  $_SESSION['delete'] = "Failed to delete admin. Try again.";
+  $_SESSION['delete'] = "<div class='error'>Failed to delete admin. Try again.</div>";
   header('location:'.SITEURL.'admin/manage-admin.php');
 }
 
